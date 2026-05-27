@@ -135,6 +135,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   * {
     border-color: var(--color-border);
@@ -154,6 +155,11 @@
 }
 .animate-marquee {
   animation: marquee 30s linear infinite;
+}
+
+.marquee-clip {
+  max-width: 100%;
+  contain: paint;
 }
 
 @media (max-width: 767px) {
