@@ -509,7 +509,7 @@ function TrustBar({ copy }: { copy: Copy }) {
           {copy.trust.label}
         </p>
       </div>
-      <div className="group relative overflow-hidden">
+      <div className="marquee-clip group relative overflow-hidden">
         <div className="flex w-max animate-marquee gap-14 px-5 sm:px-8">
           {row.map((p, i) => (
             <span
@@ -849,7 +849,7 @@ function StickyQuoteBar({ copy }: { copy: Copy }) {
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 backdrop-blur md:hidden">
       <a
         href="#contact"
-        className="flex min-h-14 items-center justify-center gap-2 rounded-full bg-primary px-4 text-center text-sm font-bold uppercase tracking-wider text-primary-foreground"
+        className="flex min-h-14 items-center justify-center gap-2 rounded-full bg-primary px-4 text-center text-sm font-bold uppercase text-primary-foreground sm:tracking-wider"
       >
         {copy.nav.freeQuote} <ArrowRight className="size-4 shrink-0" />
       </a>
