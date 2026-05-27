@@ -148,9 +148,10 @@ function Index() {
 /* ---------- NAV ---------- */
 function Nav() {
   const [open, setOpen] = useState(false);
+  const [lang, setLang] = useState<Lang>("PL");
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-5 sm:px-8">
         <a href="#top" className="flex items-center gap-2 font-black tracking-tight">
           <span className="inline-block size-2 rounded-sm bg-primary" />
           <span className="text-base">WRAPWORKS</span>
@@ -165,6 +166,7 @@ function Nav() {
               {l.label}
             </a>
           ))}
+          <LangSwitcher lang={lang} setLang={setLang} />
           <a
             href="#contact"
             className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-bold uppercase tracking-wider text-primary-foreground transition-transform hover:scale-[1.03]"
@@ -172,14 +174,17 @@ function Nav() {
             Request Quote <ArrowRight className="size-4" />
           </a>
         </nav>
-        <button
-          aria-label="Open menu"
-          aria-expanded={open}
-          onClick={() => setOpen(true)}
-          className="flex size-11 items-center justify-center rounded-md md:hidden"
-        >
-          <Menu className="size-6" />
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <LangSwitcher lang={lang} setLang={setLang} />
+          <button
+            aria-label="Open menu"
+            aria-expanded={open}
+            onClick={() => setOpen(true)}
+            className="flex size-11 items-center justify-center rounded-md"
+          >
+            <Menu className="size-6" />
+          </button>
+        </div>
       </div>
 
       {/* Mobile overlay */}
@@ -187,13 +192,16 @@ function Nav() {
         <div className="fixed inset-0 z-50 flex flex-col bg-background md:hidden">
           <div className="flex h-16 items-center justify-between px-5">
             <span className="font-black tracking-tight">WRAPWORKS</span>
-            <button
-              aria-label="Close menu"
-              onClick={() => setOpen(false)}
-              className="flex size-11 items-center justify-center rounded-md"
-            >
-              <X className="size-6" />
-            </button>
+            <div className="flex items-center gap-2">
+              <LangSwitcher lang={lang} setLang={setLang} />
+              <button
+                aria-label="Close menu"
+                onClick={() => setOpen(false)}
+                className="flex size-11 items-center justify-center rounded-md"
+              >
+                <X className="size-6" />
+              </button>
+            </div>
           </div>
           <nav className="flex flex-1 flex-col gap-1 px-5 pt-6">
             {NAV.map((l) => (
