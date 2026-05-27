@@ -14,7 +14,53 @@ import {
   Mail,
   MapPin,
   Check,
+  Globe,
 } from "lucide-react";
+
+type Lang = "PL" | "EN";
+
+function LangSwitcher({
+  lang,
+  setLang,
+  className = "",
+}: {
+  lang: Lang;
+  setLang: (l: Lang) => void;
+  className?: string;
+}) {
+  const other: Lang = lang === "PL" ? "EN" : "PL";
+  return (
+    <div
+      className={`flex items-center gap-1 rounded-full border border-border bg-card/60 px-2 py-1 text-xs font-bold uppercase tracking-wider ${className}`}
+      role="group"
+      aria-label="Language switcher"
+    >
+      <Globe className="size-3.5 text-muted-foreground" aria-hidden />
+      <button
+        type="button"
+        onClick={() => setLang("PL")}
+        aria-pressed={lang === "PL"}
+        className={`min-h-8 rounded-full px-2 transition-colors ${
+          lang === "PL" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+        }`}
+      >
+        PL
+      </button>
+      <span className="text-muted-foreground/60" aria-hidden>|</span>
+      <button
+        type="button"
+        onClick={() => setLang("EN")}
+        aria-pressed={lang === "EN"}
+        className={`min-h-8 rounded-full px-2 transition-colors ${
+          lang === "EN" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+        }`}
+      >
+        EN
+      </button>
+      <span className="sr-only">Current language: {lang}. Switch to {other}.</span>
+    </div>
+  );
+}
 
 import hero from "@/assets/hero.jpg";
 import serviceVehicle from "@/assets/service-vehicle.jpg";
@@ -102,9 +148,10 @@ function Index() {
 /* ---------- NAV ---------- */
 function Nav() {
   const [open, setOpen] = useState(false);
+  const [lang, setLang] = useState<Lang>("PL");
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-5 sm:px-8">
         <a href="#top" className="flex items-center gap-2 font-black tracking-tight">
           <span className="inline-block size-2 rounded-sm bg-primary" />
           <span className="text-base">WRAPWORKS</span>
@@ -119,6 +166,7 @@ function Nav() {
               {l.label}
             </a>
           ))}
+          <LangSwitcher lang={lang} setLang={setLang} />
           <a
             href="#contact"
             className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-bold uppercase tracking-wider text-primary-foreground transition-transform hover:scale-[1.03]"
@@ -126,14 +174,17 @@ function Nav() {
             Request Quote <ArrowRight className="size-4" />
           </a>
         </nav>
-        <button
-          aria-label="Open menu"
-          aria-expanded={open}
-          onClick={() => setOpen(true)}
-          className="flex size-11 items-center justify-center rounded-md md:hidden"
-        >
-          <Menu className="size-6" />
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <LangSwitcher lang={lang} setLang={setLang} />
+          <button
+            aria-label="Open menu"
+            aria-expanded={open}
+            onClick={() => setOpen(true)}
+            className="flex size-11 items-center justify-center rounded-md"
+          >
+            <Menu className="size-6" />
+          </button>
+        </div>
       </div>
 
       {/* Mobile overlay */}
@@ -141,13 +192,16 @@ function Nav() {
         <div className="fixed inset-0 z-50 flex flex-col bg-background md:hidden">
           <div className="flex h-16 items-center justify-between px-5">
             <span className="font-black tracking-tight">WRAPWORKS</span>
-            <button
-              aria-label="Close menu"
-              onClick={() => setOpen(false)}
-              className="flex size-11 items-center justify-center rounded-md"
-            >
-              <X className="size-6" />
-            </button>
+            <div className="flex items-center gap-2">
+              <LangSwitcher lang={lang} setLang={setLang} />
+              <button
+                aria-label="Close menu"
+                onClick={() => setOpen(false)}
+                className="flex size-11 items-center justify-center rounded-md"
+              >
+                <X className="size-6" />
+              </button>
+            </div>
           </div>
           <nav className="flex flex-1 flex-col gap-1 px-5 pt-6">
             {NAV.map((l) => (
