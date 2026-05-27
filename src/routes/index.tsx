@@ -14,7 +14,53 @@ import {
   Mail,
   MapPin,
   Check,
+  Globe,
 } from "lucide-react";
+
+type Lang = "PL" | "EN";
+
+function LangSwitcher({
+  lang,
+  setLang,
+  className = "",
+}: {
+  lang: Lang;
+  setLang: (l: Lang) => void;
+  className?: string;
+}) {
+  const other: Lang = lang === "PL" ? "EN" : "PL";
+  return (
+    <div
+      className={`flex items-center gap-1 rounded-full border border-border bg-card/60 px-2 py-1 text-xs font-bold uppercase tracking-wider ${className}`}
+      role="group"
+      aria-label="Language switcher"
+    >
+      <Globe className="size-3.5 text-muted-foreground" aria-hidden />
+      <button
+        type="button"
+        onClick={() => setLang("PL")}
+        aria-pressed={lang === "PL"}
+        className={`min-h-8 rounded-full px-2 transition-colors ${
+          lang === "PL" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+        }`}
+      >
+        PL
+      </button>
+      <span className="text-muted-foreground/60" aria-hidden>|</span>
+      <button
+        type="button"
+        onClick={() => setLang("EN")}
+        aria-pressed={lang === "EN"}
+        className={`min-h-8 rounded-full px-2 transition-colors ${
+          lang === "EN" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+        }`}
+      >
+        EN
+      </button>
+      <span className="sr-only">Current language: {lang}. Switch to {other}.</span>
+    </div>
+  );
+}
 
 import hero from "@/assets/hero.jpg";
 import serviceVehicle from "@/assets/service-vehicle.jpg";
