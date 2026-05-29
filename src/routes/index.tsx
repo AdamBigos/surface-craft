@@ -401,7 +401,7 @@ function Nav({ lang, setLang, copy }: { lang: Lang; setLang: (l: Lang) => void; 
     <header className="site-header sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
       <div className="nav-shell mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-5 sm:px-8">
         <a href="#top" className="logo-link flex min-w-0 shrink items-center gap-2.5 font-black tracking-tight" aria-label="DDK — Strona główna">
-          <img src={logoDdk} alt="DDK logo" width={140} height={44} className="h-9 w-auto shrink-0 object-contain sm:h-10" />
+          <img src={logoDdk} alt="DDK logo" width={160} height={48} className="h-10 w-auto shrink-0 object-contain sm:h-11" />
           <span className="sr-only">DDK</span>
         </a>
 
