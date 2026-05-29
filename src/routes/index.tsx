@@ -152,6 +152,7 @@ const COPY: Record<Lang, Copy> = {
           bullets: ["Satyna, mat, color-shift", "Demontowalne — chroni lakier", "Idealne łączenia panelowe"],
           alt: "Auto po pełnej zmianie koloru folią",
         },
+      ],
     },
     gallery: {
       label: "Wybrane realizacje",
