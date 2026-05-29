@@ -10,6 +10,7 @@ import {
   Sparkles,
   Truck,
   Building2,
+  Palette,
   Phone,
   Mail,
   MapPin,
@@ -143,6 +144,14 @@ const COPY: Record<Lang, Copy> = {
           bullets: ["Folie perforowane one-way", "Mrożone i trawione szkło", "Realizacje wielolokalowe"],
           alt: "Oklejona witryna lokalu usługowego",
         },
+        {
+          img: serviceVehicle,
+          icon: Palette,
+          title: "Zmiana koloru auta",
+          copy: "Pełna zmiana koloru nadwozia z użyciem folii premium — efekt fabrycznego lakieru oraz dodatkowa ochrona powłoki.",
+          bullets: ["Satyna, mat, color-shift", "Demontowalne — chroni lakier", "Idealne łączenia panelowe"],
+          alt: "Auto po pełnej zmianie koloru folią",
+        },
       ],
     },
     gallery: {
@@ -174,12 +183,12 @@ const COPY: Record<Lang, Copy> = {
       rights: "Wszelkie prawa zastrzeżone.",
     },
     galleryItems: [
-      { src: p1, title: "Project Citrine", tag: "Sportowe coupé — pełne oklejenie", cat: "vehicles" },
-      { src: p3, title: "Tower 41", tag: "Biurowiec — grafika perforowana", cat: "windows" },
-      { src: p2, title: "Diluelk Fleet", tag: "Logistyka — rollout 18 pojazdów", cat: "vehicles" },
-      { src: p5, title: "Maison B.", tag: "Butik — folia imitująca trawienie", cat: "windows" },
-      { src: p4, title: "Stealth GT", tag: "Satynowa folia color-shift", cat: "vehicles" },
-      { src: p6, title: "Circuit Livery", tag: "Zespół wyścigowy — geometryczna grafika", cat: "vehicles" },
+      { src: p1, title: "WAKO Developer", tag: "Bus dostawczy — pełna reklama deweloperska", cat: "vehicles" },
+      { src: p3, title: "Expander — Jagiellońska", tag: "Witryna oddziału — branding narożny", cat: "windows" },
+      { src: p2, title: "WAKO Fleet · Tył", tag: "Flota Ducato — spójna identyfikacja", cat: "vehicles" },
+      { src: p5, title: "Expander — Witryna", tag: "Folia kasowa z ofertą kredytową", cat: "windows" },
+      { src: p4, title: "WAKO · Boczna", tag: "Wielkoformatowa wizualizacja inwestycji", cat: "vehicles" },
+      { src: p6, title: "PZZ Kraków", tag: "Cysterna przemysłowa — logotyp herbowy", cat: "vehicles" },
     ],
   },
   EN: {
@@ -251,6 +260,14 @@ const COPY: Record<Lang, Copy> = {
           bullets: ["Perforated one-way film", "Frosted & etched glass", "Multi-site rollouts"],
           alt: "Wrapped storefront window",
         },
+        {
+          img: serviceVehicle,
+          icon: Palette,
+          title: "Color Change Wrap",
+          copy: "Full-body color transformation using premium vinyl, providing a factory-finish look and superior paint protection.",
+          bullets: ["Satin, matte & color-shift", "Reversible — protects OEM paint", "Seamless panel-level finish"],
+          alt: "Car after full color change wrap",
+        },
       ],
     },
     gallery: {
@@ -282,12 +299,12 @@ const COPY: Record<Lang, Copy> = {
       rights: "All rights reserved.",
     },
     galleryItems: [
-      { src: p1, title: "Project Citrine", tag: "Sports coupe — full wrap", cat: "vehicles" },
-      { src: p3, title: "Tower 41", tag: "Office tower — perforated graphic", cat: "windows" },
-      { src: p2, title: "Diluelk Fleet", tag: "Logistics — 18 vehicle rollout", cat: "vehicles" },
-      { src: p5, title: "Maison B.", tag: "Boutique — etched vinyl", cat: "windows" },
-      { src: p4, title: "Stealth GT", tag: "Color-shift satin", cat: "vehicles" },
-      { src: p6, title: "Circuit Livery", tag: "Race team — geometric wrap", cat: "vehicles" },
+      { src: p1, title: "WAKO Developer", tag: "Delivery van — full developer branding", cat: "vehicles" },
+      { src: p3, title: "Expander — Jagiellońska", tag: "Branch corner — facade graphic", cat: "windows" },
+      { src: p2, title: "WAKO Fleet · Rear", tag: "Ducato fleet — unified livery", cat: "vehicles" },
+      { src: p5, title: "Expander — Window", tag: "Retail window with credit offer", cat: "windows" },
+      { src: p4, title: "WAKO · Side", tag: "Large-format property visual", cat: "vehicles" },
+      { src: p6, title: "PZZ Kraków", tag: "Industrial tank — heritage emblem", cat: "vehicles" },
     ],
   },
 };
@@ -384,7 +401,7 @@ function Nav({ lang, setLang, copy }: { lang: Lang; setLang: (l: Lang) => void; 
     <header className="site-header sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
       <div className="nav-shell mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-5 sm:px-8">
         <a href="#top" className="logo-link flex min-w-0 shrink items-center gap-2.5 font-black tracking-tight" aria-label="DDK — Strona główna">
-          <img src={logoDdk} alt="DDK logo" width={140} height={44} className="h-9 w-auto shrink-0 object-contain sm:h-10" />
+          <img src={logoDdk} alt="DDK logo" width={160} height={48} className="h-10 w-auto shrink-0 object-contain sm:h-11" />
           <span className="sr-only">DDK</span>
         </a>
 
@@ -566,7 +583,7 @@ function Services({ copy }: { copy: Copy }) {
           {copy.services.headingA}<br />
           {copy.services.headingB}
         </h2>
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
+        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {copy.services.items.map((s) => (
             <article
               key={s.title}
