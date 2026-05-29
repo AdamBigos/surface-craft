@@ -170,7 +170,7 @@ const COPY: Record<Lang, Copy> = {
       map: "Google Maps · Placeholder",
     },
     footer: {
-      description: "Certyfikowane studio oklejania pojazdów i powierzchni architektonicznych. Oakland, Kalifornia.",
+      description: "DDK — studio profesjonalnego oklejania pojazdów i powierzchni architektonicznych. Reklama, change-of-color, folie ochronne.",
       rights: "Wszelkie prawa zastrzeżone.",
     },
     galleryItems: [
@@ -278,7 +278,7 @@ const COPY: Record<Lang, Copy> = {
       map: "Google Maps · Placeholder",
     },
     footer: {
-      description: "Certified vehicle and architectural wrap studio. Oakland, California.",
+      description: "DDK — certified studio for vehicle wraps, fleet branding and architectural film.",
       rights: "All rights reserved.",
     },
     galleryItems: [
@@ -646,27 +646,32 @@ function Gallery({ copy }: { copy: Copy }) {
         </div>
       </div>
 
-      <div className="mt-12 columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5">
+      <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((w) => (
           <a
             key={w.title}
             href="#contact"
-            className="group relative block break-inside-avoid overflow-hidden rounded-md border border-border"
+            className="group relative block overflow-hidden rounded-md border border-border bg-card"
           >
-            <img
-              src={w.src}
-              alt={w.title}
-              loading="lazy"
-              className="w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/10 to-transparent opacity-90 transition-opacity group-hover:opacity-100" />
-            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">{copy.gallery.cats[w.cat]}</p>
-                <p className="mt-1 text-lg font-black tracking-tight">{w.title}</p>
-                <p className="text-xs text-muted-foreground">{w.tag}</p>
+            {/* Standardized 4:3 image frame — drop in any photo, no layout shift */}
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
+              <img
+                src={w.src}
+                alt={w.title}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+              />
+              <div className="absolute inset-0 bg-background/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="absolute inset-x-0 bottom-0 translate-y-2 bg-gradient-to-t from-background/95 via-background/70 to-transparent p-5 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <div className="flex items-end justify-between gap-4">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">{copy.gallery.cats[w.cat]}</p>
+                    <p className="mt-1 text-lg font-black leading-tight tracking-tight">{w.title}</p>
+                    <p className="text-xs text-muted-foreground">{w.tag}</p>
+                  </div>
+                  <ArrowUpRight className="size-5 shrink-0 text-foreground" />
+                </div>
               </div>
-              <ArrowUpRight className="size-5 shrink-0 translate-y-0 text-foreground transition-transform group-hover:-translate-y-1" />
             </div>
           </a>
         ))}
