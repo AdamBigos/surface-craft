@@ -17,6 +17,7 @@ import {
   Globe,
 } from "lucide-react";
 
+import logoDdk from "@/assets/logo-ddk.png";
 import hero from "@/assets/hero.jpg";
 import serviceVehicle from "@/assets/service-vehicle.jpg";
 import serviceWindow from "@/assets/service-window.jpg";
@@ -307,11 +308,11 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "WRAPWORKS — Premium Vehicle & Window Wrapping" },
+      { title: "DDK — Profesjonalne Oklejanie Pojazdów i Witryn" },
       {
         name: "description",
         content:
-          "Transforming surfaces into high-impact visual assets. Premium vehicle and storefront wrapping for businesses and individuals.",
+          "DDK — studio oklejania pojazdów, flot i witryn. Reklama wielkoformatowa, change-of-color i folie ochronne wykonywane na materiałach klasy premium.",
       },
     ],
   }),
@@ -382,9 +383,9 @@ function Nav({ lang, setLang, copy }: { lang: Lang; setLang: (l: Lang) => void; 
   return (
     <header className="site-header sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
       <div className="nav-shell mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-5 sm:px-8">
-        <a href="#top" className="logo-link flex min-w-0 shrink items-center gap-2 font-black tracking-tight">
-          <span className="inline-block size-2 shrink-0 rounded-sm bg-primary" />
-          <span className="truncate text-base">WRAPWORKS</span>
+        <a href="#top" className="logo-link flex min-w-0 shrink items-center gap-2.5 font-black tracking-tight" aria-label="DDK — Strona główna">
+          <img src={logoDdk} alt="DDK logo" width={140} height={44} className="h-9 w-auto shrink-0 object-contain sm:h-10" />
+          <span className="sr-only">DDK</span>
         </a>
 
         <nav className="hidden items-center gap-5 lg:gap-8 md:flex">
@@ -422,7 +423,7 @@ function Nav({ lang, setLang, copy }: { lang: Lang; setLang: (l: Lang) => void; 
       {open && (
         <div className="fixed inset-0 z-50 flex max-w-full flex-col overflow-x-hidden bg-background md:hidden">
           <div className="flex h-16 shrink-0 items-center justify-between gap-3 px-5">
-            <span className="min-w-0 truncate font-black tracking-tight">WRAPWORKS</span>
+            <img src={logoDdk} alt="DDK logo" className="h-9 w-auto object-contain" />
             <div className="flex shrink-0 items-center gap-2">
               <LangSwitcher lang={lang} setLang={setLang} />
               <button
@@ -818,9 +819,8 @@ function Footer({ copy }: { copy: Copy }) {
     <footer className="border-t border-border bg-background pb-28 pt-14 md:pb-14">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 sm:px-8 md:flex-row md:items-end md:justify-between">
         <div>
-          <div className="flex items-center gap-2 font-black tracking-tight">
-            <span className="inline-block size-2 rounded-sm bg-primary" />
-            WRAPWORKS
+          <div className="flex items-center gap-2">
+            <img src={logoDdk} alt="DDK logo" className="h-10 w-auto object-contain" />
           </div>
           <p className="mt-3 max-w-sm text-sm text-muted-foreground">{copy.footer.description}</p>
         </div>
@@ -836,7 +836,7 @@ function Footer({ copy }: { copy: Copy }) {
           ))}
         </nav>
         <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} WrapWorks Studio. {copy.footer.rights}
+          © {new Date().getFullYear()} DDK Studio. {copy.footer.rights}
         </p>
       </div>
     </footer>
