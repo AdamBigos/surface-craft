@@ -10,6 +10,7 @@ import {
   Sparkles,
   Truck,
   Building2,
+  Palette,
   Phone,
   Mail,
   MapPin,
