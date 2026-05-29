@@ -17,6 +17,7 @@ import {
   Globe,
 } from "lucide-react";
 
+import logoDdk from "@/assets/logo-ddk.png";
 import hero from "@/assets/hero.jpg";
 import serviceVehicle from "@/assets/service-vehicle.jpg";
 import serviceWindow from "@/assets/service-window.jpg";
@@ -169,7 +170,7 @@ const COPY: Record<Lang, Copy> = {
       map: "Google Maps · Placeholder",
     },
     footer: {
-      description: "Certyfikowane studio oklejania pojazdów i powierzchni architektonicznych. Oakland, Kalifornia.",
+      description: "DDK — studio profesjonalnego oklejania pojazdów i powierzchni architektonicznych. Reklama, change-of-color, folie ochronne.",
       rights: "Wszelkie prawa zastrzeżone.",
     },
     galleryItems: [
@@ -277,7 +278,7 @@ const COPY: Record<Lang, Copy> = {
       map: "Google Maps · Placeholder",
     },
     footer: {
-      description: "Certified vehicle and architectural wrap studio. Oakland, California.",
+      description: "DDK — certified studio for vehicle wraps, fleet branding and architectural film.",
       rights: "All rights reserved.",
     },
     galleryItems: [
@@ -307,11 +308,11 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "WRAPWORKS — Premium Vehicle & Window Wrapping" },
+      { title: "DDK — Profesjonalne Oklejanie Pojazdów i Witryn" },
       {
         name: "description",
         content:
-          "Transforming surfaces into high-impact visual assets. Premium vehicle and storefront wrapping for businesses and individuals.",
+          "DDK — studio oklejania pojazdów, flot i witryn. Reklama wielkoformatowa, change-of-color i folie ochronne wykonywane na materiałach klasy premium.",
       },
     ],
   }),
@@ -382,9 +383,9 @@ function Nav({ lang, setLang, copy }: { lang: Lang; setLang: (l: Lang) => void; 
   return (
     <header className="site-header sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
       <div className="nav-shell mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-5 sm:px-8">
-        <a href="#top" className="logo-link flex min-w-0 shrink items-center gap-2 font-black tracking-tight">
-          <span className="inline-block size-2 shrink-0 rounded-sm bg-primary" />
-          <span className="truncate text-base">WRAPWORKS</span>
+        <a href="#top" className="logo-link flex min-w-0 shrink items-center gap-2.5 font-black tracking-tight" aria-label="DDK — Strona główna">
+          <img src={logoDdk} alt="DDK logo" width={140} height={44} className="h-9 w-auto shrink-0 object-contain sm:h-10" />
+          <span className="sr-only">DDK</span>
         </a>
 
         <nav className="hidden items-center gap-5 lg:gap-8 md:flex">
@@ -422,7 +423,7 @@ function Nav({ lang, setLang, copy }: { lang: Lang; setLang: (l: Lang) => void; 
       {open && (
         <div className="fixed inset-0 z-50 flex max-w-full flex-col overflow-x-hidden bg-background md:hidden">
           <div className="flex h-16 shrink-0 items-center justify-between gap-3 px-5">
-            <span className="min-w-0 truncate font-black tracking-tight">WRAPWORKS</span>
+            <img src={logoDdk} alt="DDK logo" className="h-9 w-auto object-contain" />
             <div className="flex shrink-0 items-center gap-2">
               <LangSwitcher lang={lang} setLang={setLang} />
               <button
@@ -483,7 +484,7 @@ function Hero({ copy }: { copy: Copy }) {
         <div className="flex flex-wrap gap-3">
           <a
             href="#contact"
-            className="inline-flex h-14 min-w-[200px] items-center justify-center gap-2 rounded-full bg-primary px-7 text-sm font-bold uppercase tracking-wider text-primary-foreground transition-transform hover:scale-[1.03]"
+            className="inline-flex h-14 min-w-[220px] items-center justify-center gap-2 rounded-full bg-primary px-7 text-sm font-black uppercase tracking-wider text-primary-foreground shadow-[0_10px_30px_-8px_oklch(0.72_0.19_47_/_0.65)] ring-1 ring-primary/40 transition-all hover:scale-[1.03] hover:shadow-[0_14px_40px_-8px_oklch(0.72_0.19_47_/_0.8)]"
           >
             {copy.hero.quote} <ArrowRight className="size-4" />
           </a>
@@ -645,27 +646,32 @@ function Gallery({ copy }: { copy: Copy }) {
         </div>
       </div>
 
-      <div className="mt-12 columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5">
+      <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((w) => (
           <a
             key={w.title}
             href="#contact"
-            className="group relative block break-inside-avoid overflow-hidden rounded-md border border-border"
+            className="group relative block overflow-hidden rounded-md border border-border bg-card"
           >
-            <img
-              src={w.src}
-              alt={w.title}
-              loading="lazy"
-              className="w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/10 to-transparent opacity-90 transition-opacity group-hover:opacity-100" />
-            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">{copy.gallery.cats[w.cat]}</p>
-                <p className="mt-1 text-lg font-black tracking-tight">{w.title}</p>
-                <p className="text-xs text-muted-foreground">{w.tag}</p>
+            {/* Standardized 4:3 image frame — drop in any photo, no layout shift */}
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
+              <img
+                src={w.src}
+                alt={w.title}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+              />
+              <div className="absolute inset-0 bg-background/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="absolute inset-x-0 bottom-0 translate-y-2 bg-gradient-to-t from-background/95 via-background/70 to-transparent p-5 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <div className="flex items-end justify-between gap-4">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">{copy.gallery.cats[w.cat]}</p>
+                    <p className="mt-1 text-lg font-black leading-tight tracking-tight">{w.title}</p>
+                    <p className="text-xs text-muted-foreground">{w.tag}</p>
+                  </div>
+                  <ArrowUpRight className="size-5 shrink-0 text-foreground" />
+                </div>
               </div>
-              <ArrowUpRight className="size-5 shrink-0 translate-y-0 text-foreground transition-transform group-hover:-translate-y-1" />
             </div>
           </a>
         ))}
@@ -818,9 +824,8 @@ function Footer({ copy }: { copy: Copy }) {
     <footer className="border-t border-border bg-background pb-28 pt-14 md:pb-14">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 sm:px-8 md:flex-row md:items-end md:justify-between">
         <div>
-          <div className="flex items-center gap-2 font-black tracking-tight">
-            <span className="inline-block size-2 rounded-sm bg-primary" />
-            WRAPWORKS
+          <div className="flex items-center gap-2">
+            <img src={logoDdk} alt="DDK logo" className="h-10 w-auto object-contain" />
           </div>
           <p className="mt-3 max-w-sm text-sm text-muted-foreground">{copy.footer.description}</p>
         </div>
@@ -836,7 +841,7 @@ function Footer({ copy }: { copy: Copy }) {
           ))}
         </nav>
         <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} WrapWorks Studio. {copy.footer.rights}
+          © {new Date().getFullYear()} DDK Studio. {copy.footer.rights}
         </p>
       </div>
     </footer>
@@ -849,7 +854,7 @@ function StickyQuoteBar({ copy }: { copy: Copy }) {
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 backdrop-blur md:hidden">
       <a
         href="#contact"
-        className="flex min-h-14 items-center justify-center gap-2 rounded-full bg-primary px-4 text-center text-sm font-bold uppercase text-primary-foreground sm:tracking-wider"
+        className="flex min-h-14 items-center justify-center gap-2 rounded-full bg-primary px-4 text-center text-sm font-black uppercase text-primary-foreground shadow-[0_8px_24px_-6px_oklch(0.72_0.19_47_/_0.7)] ring-1 ring-primary/40 sm:tracking-wider"
       >
         {copy.nav.freeQuote} <ArrowRight className="size-4 shrink-0" />
       </a>
