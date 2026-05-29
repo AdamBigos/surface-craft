@@ -144,7 +144,14 @@ const COPY: Record<Lang, Copy> = {
           bullets: ["Folie perforowane one-way", "Mrożone i trawione szkło", "Realizacje wielolokalowe"],
           alt: "Oklejona witryna lokalu usługowego",
         },
-      ],
+        {
+          img: serviceVehicle,
+          icon: Palette,
+          title: "Zmiana koloru auta",
+          copy: "Pełna zmiana koloru nadwozia z użyciem folii premium — efekt fabrycznego lakieru oraz dodatkowa ochrona powłoki.",
+          bullets: ["Satyna, mat, color-shift", "Demontowalne — chroni lakier", "Idealne łączenia panelowe"],
+          alt: "Auto po pełnej zmianie koloru folią",
+        },
     },
     gallery: {
       label: "Wybrane realizacje",
