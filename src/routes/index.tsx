@@ -299,12 +299,12 @@ const COPY: Record<Lang, Copy> = {
       rights: "All rights reserved.",
     },
     galleryItems: [
-      { src: p1, title: "Project Citrine", tag: "Sports coupe — full wrap", cat: "vehicles" },
-      { src: p3, title: "Tower 41", tag: "Office tower — perforated graphic", cat: "windows" },
-      { src: p2, title: "Diluelk Fleet", tag: "Logistics — 18 vehicle rollout", cat: "vehicles" },
-      { src: p5, title: "Maison B.", tag: "Boutique — etched vinyl", cat: "windows" },
-      { src: p4, title: "Stealth GT", tag: "Color-shift satin", cat: "vehicles" },
-      { src: p6, title: "Circuit Livery", tag: "Race team — geometric wrap", cat: "vehicles" },
+      { src: p1, title: "WAKO Developer", tag: "Delivery van — full developer branding", cat: "vehicles" },
+      { src: p3, title: "Expander — Jagiellońska", tag: "Branch corner — facade graphic", cat: "windows" },
+      { src: p2, title: "WAKO Fleet · Rear", tag: "Ducato fleet — unified livery", cat: "vehicles" },
+      { src: p5, title: "Expander — Window", tag: "Retail window with credit offer", cat: "windows" },
+      { src: p4, title: "WAKO · Side", tag: "Large-format property visual", cat: "vehicles" },
+      { src: p6, title: "PZZ Kraków", tag: "Industrial tank — heritage emblem", cat: "vehicles" },
     ],
   },
 };
