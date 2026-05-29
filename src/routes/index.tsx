@@ -260,6 +260,14 @@ const COPY: Record<Lang, Copy> = {
           bullets: ["Perforated one-way film", "Frosted & etched glass", "Multi-site rollouts"],
           alt: "Wrapped storefront window",
         },
+        {
+          img: serviceVehicle,
+          icon: Palette,
+          title: "Color Change Wrap",
+          copy: "Full-body color transformation using premium vinyl, providing a factory-finish look and superior paint protection.",
+          bullets: ["Satin, matte & color-shift", "Reversible — protects OEM paint", "Seamless panel-level finish"],
+          alt: "Car after full color change wrap",
+        },
       ],
     },
     gallery: {
