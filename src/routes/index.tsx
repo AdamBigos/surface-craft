@@ -484,7 +484,7 @@ function Hero({ copy }: { copy: Copy }) {
         <div className="flex flex-wrap gap-3">
           <a
             href="#contact"
-            className="inline-flex h-14 min-w-[200px] items-center justify-center gap-2 rounded-full bg-primary px-7 text-sm font-bold uppercase tracking-wider text-primary-foreground transition-transform hover:scale-[1.03]"
+            className="inline-flex h-14 min-w-[220px] items-center justify-center gap-2 rounded-full bg-primary px-7 text-sm font-black uppercase tracking-wider text-primary-foreground shadow-[0_10px_30px_-8px_oklch(0.72_0.19_47_/_0.65)] ring-1 ring-primary/40 transition-all hover:scale-[1.03] hover:shadow-[0_14px_40px_-8px_oklch(0.72_0.19_47_/_0.8)]"
           >
             {copy.hero.quote} <ArrowRight className="size-4" />
           </a>
@@ -854,7 +854,7 @@ function StickyQuoteBar({ copy }: { copy: Copy }) {
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 backdrop-blur md:hidden">
       <a
         href="#contact"
-        className="flex min-h-14 items-center justify-center gap-2 rounded-full bg-primary px-4 text-center text-sm font-bold uppercase text-primary-foreground sm:tracking-wider"
+        className="flex min-h-14 items-center justify-center gap-2 rounded-full bg-primary px-4 text-center text-sm font-black uppercase text-primary-foreground shadow-[0_8px_24px_-6px_oklch(0.72_0.19_47_/_0.7)] ring-1 ring-primary/40 sm:tracking-wider"
       >
         {copy.nav.freeQuote} <ArrowRight className="size-4 shrink-0" />
       </a>
