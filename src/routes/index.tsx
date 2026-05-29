@@ -183,12 +183,12 @@ const COPY: Record<Lang, Copy> = {
       rights: "Wszelkie prawa zastrzeżone.",
     },
     galleryItems: [
-      { src: p1, title: "Project Citrine", tag: "Sportowe coupé — pełne oklejenie", cat: "vehicles" },
-      { src: p3, title: "Tower 41", tag: "Biurowiec — grafika perforowana", cat: "windows" },
-      { src: p2, title: "Diluelk Fleet", tag: "Logistyka — rollout 18 pojazdów", cat: "vehicles" },
-      { src: p5, title: "Maison B.", tag: "Butik — folia imitująca trawienie", cat: "windows" },
-      { src: p4, title: "Stealth GT", tag: "Satynowa folia color-shift", cat: "vehicles" },
-      { src: p6, title: "Circuit Livery", tag: "Zespół wyścigowy — geometryczna grafika", cat: "vehicles" },
+      { src: p1, title: "WAKO Developer", tag: "Bus dostawczy — pełna reklama deweloperska", cat: "vehicles" },
+      { src: p3, title: "Expander — Jagiellońska", tag: "Witryna oddziału — branding narożny", cat: "windows" },
+      { src: p2, title: "WAKO Fleet · Tył", tag: "Flota Ducato — spójna identyfikacja", cat: "vehicles" },
+      { src: p5, title: "Expander — Witryna", tag: "Folia kasowa z ofertą kredytową", cat: "windows" },
+      { src: p4, title: "WAKO · Boczna", tag: "Wielkoformatowa wizualizacja inwestycji", cat: "vehicles" },
+      { src: p6, title: "PZZ Kraków", tag: "Cysterna przemysłowa — logotyp herbowy", cat: "vehicles" },
     ],
   },
   EN: {
